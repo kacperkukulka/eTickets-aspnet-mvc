@@ -1,7 +1,18 @@
+using eTickets.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+var config = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", optional: false)
+    .Build();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// DbContext configure
+builder.Services.AddDbContext<AppDbContext>(options => {
+    options.UseSqlServer(config.GetConnectionString("DefaultConnectionString"));
+});
 
 var app = builder.Build();
 
@@ -22,5 +33,8 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+//seed database
+DbInitializer.Seed(app);
 
 app.Run();
