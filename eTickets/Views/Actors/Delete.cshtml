@@ -1,0 +1,52 @@
+﻿@model Actor
+
+@{
+    ViewData["Title"] = "Delete an Actor...";
+}
+
+<div class="row text">
+    <div class="col-md-8 offset-md-2">
+        <h1>Delete confirmation for @Model.FullName</h1>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="my-4 text-center">
+                    <img id="ImageUrlPreview" class="rounded-circle" style="max-width: 150px" />
+                </div>
+                <div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="my-4">
+                        <label asp-for="ImageUrl" class="form-label"></label>
+                        <input asp-for="ImageUrl" class="form-control" readonly/>
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+                    <div class="my-4">
+                        <label asp-for="FullName" class="form-label"></label>
+                        <input asp-for="FullName" class="form-control" readonly/>
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                    <div class="my-4">
+                        <label asp-for="Bio" class="form-label"></label>
+                        <input asp-for="Bio" class="form-control" readonly/>
+                        <span asp-validation-for="Bio" class="text-danger"></span>
+                    </div>
+                    <div class="my-4">
+                        <form asp-action="Delete">
+                            <input type="hidden" asp-for="Id"/>
+                            <input type="submit" value="Confirm" class="btn btn-danger float-end" />
+                        </form>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Show All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(function () {
+            var output = document.getElementById("ImageUrlPreview");
+            output.src = $("#ImageUrl").val();
+        });
+    </script>
+}
