@@ -44,13 +44,13 @@ namespace eTickets.Controllers {
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, [Bind("Id, ImageUrl, FullName, Bio")] Actor actor) {
+        public async Task<IActionResult> Edit([Bind("Id, ImageUrl, FullName, Bio")] Actor actor) {
 
             if (!ModelState.IsValid) {
                 return View(actor);
             }
 
-            await _service.EditAsync(id, actor);
+            await _service.EditAsync(actor);
             return RedirectToAction(nameof(Index));
         }
 

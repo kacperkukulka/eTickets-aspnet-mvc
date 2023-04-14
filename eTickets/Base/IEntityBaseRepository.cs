@@ -8,7 +8,7 @@ namespace eTickets.Base {
 
         Task AddAsync(T newEntity);
 
-        Task EditAsync(int id, T newEntity);
+        Task EditAsync(T newEntity);
 
         Task DeleteAsync(int id);
     }

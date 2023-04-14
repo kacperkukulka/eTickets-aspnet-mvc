@@ -1,7 +1,7 @@
 ﻿@model Actor
 
 @{
-    ViewData["Title"] = "Add a New Actor...";
+    ViewData["Title"] = "Details of an Actor...";
 }
 
 <div class="row text">
@@ -30,7 +30,7 @@
                         <span asp-validation-for="Bio" class="text-danger"></span>
                     </div>
                     <div class="my-4">
-                        <input type="submit" value="Edit" class="btn btn-outline-success float-end" />
+                        <a asp-action="Edit" asp-route-id="@Model.Id"class="btn btn-outline-success float-end">Edit</a>
                         <a asp-action="Index" class="btn btn-outline-secondary">Show All</a>
                     </div>
                 </div>

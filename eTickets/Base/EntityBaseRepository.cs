@@ -23,7 +23,7 @@ namespace eTickets.Base {
             await _context.SaveChangesAsync();
         }
 
-        public async Task EditAsync(int id, T newEntity) {
+        public async Task EditAsync(T newEntity) {
             EntityEntry entityEntry = _context.Entry<T>(newEntity);
             entityEntry.State = EntityState.Modified;
             await _context.SaveChangesAsync();

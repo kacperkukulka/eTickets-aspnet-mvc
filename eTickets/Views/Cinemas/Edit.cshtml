@@ -1,12 +1,12 @@
-﻿@model Actor
+﻿@model Cinema
 
 @{
-    ViewData["Title"] = "Edit an Actor...";
+    ViewData["Title"] = "Edit a Cinema...";
 }
 
 <div class="row text">
     <div class="col-md-8 offset-md-2">
-        <h1>Edit for @Model.FullName</h1>
+        <h1>Edit for @Model.Name</h1>
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="my-4 text-center">
@@ -20,14 +20,14 @@
                         <span asp-validation-for="ImageUrl" class="text-danger"></span>
                     </div>
                     <div class="my-4">
-                        <label asp-for="FullName" class="form-label"></label>
-                        <input asp-for="FullName" class="form-control" />
-                        <span asp-validation-for="FullName" class="text-danger"></span>
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="my-4">
-                        <label asp-for="Bio" class="form-label"></label>
-                        <input asp-for="Bio" class="form-control" />
-                        <span asp-validation-for="Bio" class="text-danger"></span>
+                        <label asp-for="Description" class="form-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="my-4">
                         <input type="submit" value="Save Changes" class="btn btn-outline-success float-end" />
